@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import Searchsection from "./components/Searchsection";
+import Tile from "./components/Tile";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+    return (
+        <div className="bg-neutral-950 h-fit text-white">
+            <div className="w-full min-h-screen flex flex-col justify-center items-center p-15 gap-10">
+                {/* //* Search Section */}
+                <Searchsection />
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+                {/* //* Anime List */}
+                <ul className="w-full h-4/5 flex flex-col gap-5">
+                    <Tile />
+                </ul>
+            </div>
+        </div>
+    );
+};
 
-export default App
+export default App;
