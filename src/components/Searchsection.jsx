@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import ResultTile from "./ResultTile";
 
-const Searchsection = ({ aniName, setAniName, searchResult }) => {
+const Searchsection = ({
+    aniName,
+    setAniName,
+    searchResult,
+    getWatchOrder,
+}) => {
     return (
         <div className="w-150 flex flex-col gap-5 items-center">
             {/* //* Heading */}
@@ -28,6 +33,8 @@ const Searchsection = ({ aniName, setAniName, searchResult }) => {
                                     img={ani.images.jpg.image_url}
                                     name={ani.title}
                                     releaseDate={ani.aired.string}
+                                    id={ani.mal_id}
+                                    getWatchOrder={getWatchOrder}
                                 />
                             );
                         })}
