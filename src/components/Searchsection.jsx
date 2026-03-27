@@ -6,11 +6,12 @@ const Searchsection = ({
     setAniName,
     searchResult,
     getWatchOrder,
+    emptyInput,
 }) => {
     return (
         <div className="w-150 flex flex-col gap-5 items-center">
             {/* //* Heading */}
-            <h1 className="capitalize text-6xl font-semibold">
+            <h1 className="capitalize text-6xl font-semibold text-rose-400">
                 Find Out Watch order
             </h1>
 
@@ -25,7 +26,7 @@ const Searchsection = ({
                     placeholder="Search Anime"
                 />
                 {searchResult.length > 0 && (
-                    <div className="h-83.5 w-full bg-neutral-900 rounded p-2.5 flex flex-col justify-between overflow-auto gap-2 no-scrollbar">
+                    <div className="h-fit w-full bg-neutral-900 rounded p-2.5 flex flex-col justify-between items-center overflow-auto gap-2 no-scrollbar">
                         {searchResult.map((ani) => {
                             return (
                                 <ResultTile
@@ -35,9 +36,14 @@ const Searchsection = ({
                                     releaseDate={ani.aired.string}
                                     id={ani.mal_id}
                                     getWatchOrder={getWatchOrder}
+                                    emptyInput={emptyInput}
                                 />
                             );
                         })}
+                        <p className="text-sm text-neutral-500 capitalize w-fit">
+                            Slect the Main franchise(1st Season) to Get Correct
+                            Watch order | eg : (Naruto, Attack on titan)
+                        </p>
                     </div>
                 )}
             </div>

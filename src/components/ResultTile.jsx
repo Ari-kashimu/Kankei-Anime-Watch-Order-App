@@ -1,11 +1,19 @@
 import React from "react";
 
-const ResultTile = ({ img, name, releaseDate, id, getWatchOrder }) => {
+const ResultTile = ({
+    img,
+    name,
+    releaseDate,
+    id,
+    getWatchOrder,
+    emptyInput,
+}) => {
     return (
         <button
             className="h-25 p-2 w-full rounded bg-neutral-950 flex items-center gap-2.5 cursor-pointer hover:scale-102 transition-all hover:bg-rose-500"
             onClick={() => {
                 getWatchOrder(id);
+                emptyInput();
             }}>
             {/* //* Image*/}
             <img
