@@ -26,7 +26,7 @@ const Tile = ({
                     <div>
                         <h3 className="text-4xl">{name}</h3>
                         <p className="text-rose-400 text-sm mt-1.5 tracking-wider">
-                            {eng_name}
+                            {eng_name === null ? name : eng_name}
                         </p>
                     </div>
                     <p className="text-neutral-400 flex gap-2.5">

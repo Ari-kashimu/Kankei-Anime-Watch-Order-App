@@ -64,7 +64,7 @@ const App = () => {
         let currentId = id;
 
         while (true) {
-            await delay(300);
+            await delay(150);
 
             const res = await fetch(
                 `https://api.jikan.moe/v4/anime/${currentId}/relations`,
@@ -141,7 +141,7 @@ const App = () => {
             if (visited.current.has(currentId)) continue;
             visited.current.add(currentId);
 
-            await delay(600); //  To avoid api call limits 3calls/s
+            await delay(100); //  To avoid api call limits 3calls/s
 
             //  Fetch Current anime relation
             const res = await fetch(
@@ -157,7 +157,7 @@ const App = () => {
                     //
                     if (entry.type === "anime") {
                         //
-                        await delay(800); // To avoid api call limits 3calls/s
+                        await delay(200); // To avoid api call limits 3calls/s
 
                         const fullRes = await fetch(
                             `https://api.jikan.moe/v4/anime/${entry.mal_id}/full`,
@@ -237,9 +237,7 @@ const App = () => {
 
         // Fins root Anime
         const rootId = await getPrequel(id);
-        const res = await fetch(
-            `https://api.jikan.moe/v4/anime/${rootId}/full`,
-        );
+        const res = await fetch(`https://api.jikan.moe/v4/anime/${rootId}`);
         const data = await res.json();
         const rootAnime = data.data;
 
