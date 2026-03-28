@@ -1,21 +1,30 @@
-<<<<<<< HEAD
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
 # Hana-Anime-Watch-Order-App
+
 A React-based Anime Watch Order App that generates correct viewing order using Jikan API and anime relations data.
->>>>>>> 3abe2f340e039d338479b92a92368e02cff1b174
+
+## Features
+
+- Search for anime
+- View related anime
+- Generate correct watch order
+
+## Tech Stack
+
+- Frontend: React.js + TailwindCSS
+- API: Jikan API (Unofficial MyAnimeList API)
+- Deployment: Vercel (optional)
+- Package Manager: npm / Node.js
+
+## ScreenShots
+
+![Landing Page](./src/assets/Landing%20Page.png)
+![Search Box](./src/assets/SearchBox.png)
+![Watch Order](./src/assets/Watch%20Order.png)
+
+## Live Demo
+
+[Live Demo](https://your-app.vercel.app)
+
+## License
+
+This project is licensed under the MIT License
