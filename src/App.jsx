@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Searchsection from "./components/Searchsection";
 import Tile from "./components/Tile";
 import Loader from "./Loader";
+import VersionBadge from "./components/VersionBadge";
 
 const App = () => {
     //* Anime Name That User Types
@@ -141,7 +142,7 @@ const App = () => {
             if (visited.current.has(currentId)) continue;
             visited.current.add(currentId);
 
-            await delay(100); //  To avoid api call limits 3calls/s
+            await delay(200); //  To avoid api call limits 3calls/s
 
             //  Fetch Current anime relation
             const res = await fetch(
@@ -157,7 +158,7 @@ const App = () => {
                     //
                     if (entry.type === "anime") {
                         //
-                        await delay(200); // To avoid api call limits 3calls/s
+                        await delay(1000); // To avoid api call limits 3calls/s
 
                         const fullRes = await fetch(
                             `https://api.jikan.moe/v4/anime/${entry.mal_id}/full`,
@@ -250,7 +251,8 @@ const App = () => {
     }
 
     return (
-        <div className="bg-neutral-950 h-fit text-white">
+        <div className="bg-neutral-950 h-fit text-white relative">
+            <VersionBadge />
             <div className="w-full min-h-screen flex flex-col justify-center items-center p-15 gap-10">
                 {loading ? (
                     <Loader />
