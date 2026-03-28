@@ -95,8 +95,6 @@ const App = () => {
         const result = [];
         const rootTitle = rootAnime.title.toLowerCase();
 
-        const max = 60;
-
         // Allowed anime types (keeps real content)
         const allowedTypes = [
             "TV",
@@ -118,6 +116,7 @@ const App = () => {
             "Full Story",
             "Alternative Setting",
             "Spin-Off",
+            "Summary",
             "Other",
         ];
 
@@ -134,7 +133,7 @@ const App = () => {
         // Always first anime(rootAnime)  so that we can see anime with only on season : Golden time
         result.push(rootAnime);
 
-        while (queue.length > 0 && result.length < max) {
+        while (queue.length > 0) {
             //Take First Anime From queue
             const currentId = queue.shift();
 
@@ -158,30 +157,22 @@ const App = () => {
                     //
                     if (entry.type === "anime") {
                         //
-                        await delay(1000); // To avoid api call limits 3calls/s
+                        await delay(650); // To avoid api call limits 3calls/s
 
                         const fullRes = await fetch(
-                            `https://api.jikan.moe/v4/anime/${entry.mal_id}/full`,
+                            `https://api.jikan.moe/v4/anime/${entry.mal_id}`,
                         );
                         const fullData = await fullRes.json();
                         const anime = fullData.data;
 
+                        console.log(rel.relation);
+
                         // Correct filtering
-                        if (!allowedTypes.includes(anime.type)) continue;
+                        if (!allowedTypes.includes(anime.type)) continue; // Filter by Types
+                        if (!validRelations.includes(rel.relation)) continue; // Filter by Valid Relations
+                        if (blockedRelations.includes(rel.relation)) continue; // Filter by Blocked Relations
 
-                        if (
-                            anime.relations.length > 0 &&
-                            !anime.relations.some((rel) =>
-                                validRelations.includes(rel.relation),
-                            )
-                        ) {
-                            continue;
-                        }
-
-                        // Block relation = Charcters
-                        if (blockedRelations.includes(rel.relation)) continue;
-
-                        // Smart Alternative Setting Filter
+                        //Filter by Comparing Title
                         if (
                             rel.relation === "Alternative Setting" ||
                             rel.relation === "Other"
@@ -218,7 +209,6 @@ const App = () => {
             return dateA - dateB;
         });
 
-        console.log(result);
         setAllRelations(result);
     }
 
