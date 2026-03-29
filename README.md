@@ -26,7 +26,7 @@ This site is only for desktop right now but I will make the mobile version in fu
 - Search for anime
 - View related anime
 - Generate correct watch order
-- Its a slow for big franchises like Naruto, Attack on titan because it takes time to fetch data and also due to jikan api call limit 3calls/second window
+- Its slow for big franchises like Naruto, Attack on titan because it takes time to fetch data and also due to jikan api call limit 3calls/second window
 
 ## Tech Stack
 
@@ -49,17 +49,20 @@ This site is only for desktop right now but I will make the mobile version in fu
 - Add Backend and Database
 - Make it faster by adding its own database
 
-## Installation
+````md
+## 📦 Installation
 
 To run this project locally:
 
+```bash
 git clone https://github.com/ari-kashimu/Hana-Anime-Watch-Order-App.git
-
 cd Hana-Anime-Watch-Order-App
-
 npm install
-
 npm run dev
+
+
+```
+````
 
 ## License
 
