@@ -49,7 +49,6 @@ This site is only for desktop right now but I will make the mobile version in fu
 - Add Backend and Database
 - Make it faster by adding its own database
 
-````md
 ## 📦 Installation
 
 To run this project locally:
@@ -62,7 +61,6 @@ npm run dev
 
 
 ```
-````
 
 ## License
 
