@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Searchsection from "./components/Searchsection";
 import Tile from "./components/Tile";
-import Loader from "./Loader";
+import Loader from "./components/Loader";
 import VersionBadge from "./components/VersionBadge";
+import { delay } from "./helpers/delay";
 
 const App = () => {
     //* Anime Name That User Types
@@ -27,11 +28,6 @@ const App = () => {
     //* Helper Function to empty input after clicking one anime
     function emptyInput() {
         setAniName("");
-    }
-
-    //* Delay Function to aviod Api Limits
-    function delay(ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
     }
 
     //* Async Function to Fetch Anime Data For Search franchise
