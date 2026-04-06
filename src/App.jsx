@@ -4,13 +4,11 @@ import Tile from "./components/Tile";
 import Loader from "./components/Loader";
 import VersionBadge from "./components/VersionBadge";
 import { delay } from "./helpers/delay";
+import { useSearch } from "./hooks/useSearch";
 
 const App = () => {
     //* Anime Name That User Types
     const [aniName, setAniName] = useState("");
-
-    //* Result That User gets
-    const [searchResult, setSearchResult] = useState([]);
 
     // * All relation array
     const [allRelations, setAllRelations] = useState([]);
@@ -31,29 +29,16 @@ const App = () => {
     }
 
     //* Async Function to Fetch Anime Data For Search franchise
-    async function getAniDataForSearch() {
-        const res = await fetch(
-            `https://api.jikan.moe/v4/anime?q=${aniName}&limit=2`,
-        );
-        const data = await res.json();
 
-        setSearchResult(data.data);
-    }
+    const { search, searchResult } = useSearch();
 
-    //* useEffect For Request Anime Data While Typing(After 500s)
+    //* useEffect For Request Anime Search (After 200s)
     useEffect(() => {
-        if (!aniName) {
-            setSearchResult([]);
-            return;
-        }
+        const timer = setTimeout(() => {
+            search(aniName);
+        }, 200);
 
-        if (aniName.length > 2) {
-            const timer = setTimeout(() => {
-                getAniDataForSearch();
-            }, 500);
-
-            return () => clearTimeout(timer);
-        }
+        return () => clearTimeout(timer);
     }, [aniName]);
 
     //* Function to Find the prequel (The First Anime of the Franchise)
