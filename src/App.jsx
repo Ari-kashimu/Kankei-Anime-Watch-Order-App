@@ -5,6 +5,7 @@ import Loader from "./components/Loader";
 import VersionBadge from "./components/VersionBadge";
 import { delay } from "./helpers/delay";
 import { useSearch } from "./hooks/useSearch";
+import { getRootAnime } from "./helpers/getPrequel";
 
 const App = () => {
     //* Anime Name That User Types
@@ -40,33 +41,6 @@ const App = () => {
 
         return () => clearTimeout(timer);
     }, [aniName]);
-
-    //* Function to Find the prequel (The First Anime of the Franchise)
-    async function getPrequel(id) {
-        let currentId = id;
-
-        while (true) {
-            await delay(150);
-
-            const res = await fetch(
-                `https://api.jikan.moe/v4/anime/${currentId}/relations`,
-            );
-            const data = await res.json();
-
-            const prequel = data.data.find(
-                (r) =>
-                    r.relation === "Prequel" ||
-                    r.relation === "Parent Story" ||
-                    r.relation === "Full Story",
-            );
-
-            if (!prequel) break;
-
-            currentId = prequel.entry.find((e) => e.type === "anime")?.mal_id;
-        }
-
-        return currentId;
-    }
 
     //* Function to Find the all relation from the The First Anime of the Franchise
 
@@ -207,11 +181,8 @@ const App = () => {
         setAllRelations([]);
         visited.current.clear();
 
-        // Fins root Anime
-        const rootId = await getPrequel(id);
-        const res = await fetch(`https://api.jikan.moe/v4/anime/${rootId}`);
-        const data = await res.json();
-        const rootAnime = data.data;
+        // Find root Anime
+        const rootAnime = await getRootAnime(id);
 
         await getAllRelations(rootAnime);
 
