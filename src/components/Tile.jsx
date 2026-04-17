@@ -24,9 +24,11 @@ const Tile = ({
                 </div>
                 <div className="h-full flex flex-col justify-evenly">
                     <div>
-                        <h3 className="text-4xl">{name}</h3>
-                        <p className="text-rose-400 text-sm mt-1.5 tracking-wider">
+                        <h3 className="text-4xl">
                             {eng_name === null ? name : eng_name}
+                        </h3>
+                        <p className="text-rose-400 text-sm mt-1.5 tracking-wider">
+                            {name}
                         </p>
                     </div>
                     <p className="text-neutral-400 flex gap-2.5">

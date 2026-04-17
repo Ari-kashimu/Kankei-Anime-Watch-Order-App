@@ -6,6 +6,7 @@ import VersionBadge from "./components/VersionBadge";
 import { delay } from "./helpers/delay";
 import { useSearch } from "./hooks/useSearch";
 import { getRootAnime } from "./helpers/getPrequel";
+import { filterResults } from "./helpers/filterResults";
 
 const App = () => {
     //* Anime Name That User Types
@@ -37,7 +38,7 @@ const App = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             search(aniName);
-        }, 200);
+        }, 300);
 
         return () => clearTimeout(timer);
     }, [aniName]);
@@ -153,6 +154,9 @@ const App = () => {
                 }
             }
         }
+
+        const filteredResult = filterResults(result);
+
         // Sort the Result by aried date
         result.sort((a, b) => {
             const dateA = a.aired?.from
@@ -164,7 +168,7 @@ const App = () => {
             return dateA - dateB;
         });
 
-        setAllRelations(result);
+        setAllRelations(filteredResult);
     }
 
     useEffect(() => {
@@ -217,15 +221,15 @@ const App = () => {
                                         return (
                                             <Tile
                                                 key={ani.mal_id}
-                                                img={ani.images.jpg.image_url}
-                                                name={ani.title}
-                                                eng_name={ani.title_english}
+                                                img={ani.img}
+                                                name={ani.name}
+                                                eng_name={ani.eng_name}
                                                 type={ani.type}
                                                 ep={ani.episodes}
                                                 duration={ani.duration}
                                                 score={ani.score}
-                                                fromTo={ani.aired.string}
-                                                mal_url={ani.url}
+                                                fromTo={ani.fromTo}
+                                                mal_url={ani.mal_url}
                                             />
                                         );
                                     })}
