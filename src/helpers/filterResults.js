@@ -12,9 +12,10 @@ export function filterResults(result) {
             ep: anime.episodes,
             duration: anime.duration,
             score: anime.score,
-            fromTo: anime.aired.string,
+            releaseDate: anime.aired.string,
             mal_url: anime.url,
             mal_id: anime.mal_id,
+            startedFrom: anime.aired.from,
         });
     });
 

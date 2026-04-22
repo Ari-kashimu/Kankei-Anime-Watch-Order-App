@@ -7,6 +7,7 @@ import { delay } from "./helpers/delay";
 import { useSearch } from "./hooks/useSearch";
 import { getRootAnime } from "./helpers/getPrequel";
 import { filterResults } from "./helpers/filterResults";
+import { sortResults } from "./helpers/sortResults";
 
 const App = () => {
     //* Anime Name That User Types
@@ -158,15 +159,7 @@ const App = () => {
         const filteredResult = filterResults(result);
 
         // Sort the Result by aried date
-        result.sort((a, b) => {
-            const dateA = a.aired?.from
-                ? new Date(a.aired.from)
-                : new Date(8640000000000000); // max date
-            const dateB = b.aired?.from
-                ? new Date(b.aired.from)
-                : new Date(8640000000000000);
-            return dateA - dateB;
-        });
+        sortResults(filteredResult);
 
         setAllRelations(filteredResult);
     }
@@ -228,7 +221,7 @@ const App = () => {
                                                 ep={ani.episodes}
                                                 duration={ani.duration}
                                                 score={ani.score}
-                                                fromTo={ani.fromTo}
+                                                fromTo={ani.releaseDate}
                                                 mal_url={ani.mal_url}
                                             />
                                         );
