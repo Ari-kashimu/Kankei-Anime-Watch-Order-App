@@ -1,17 +1,17 @@
-# Hana Anime Watch Order App (Beta)
+# Kankei Anime Watch Order App (Beta)
 
-Hana Anime Watch Order App is a modern Anime Watch Order Generator built with React that automatically
+kankei Anime Watch Order App is a modern Anime Watch Order Generator built with React that automatically
 generates the correct viewing order for anime series using anime relation data.
 
 ### Live Demo
 
-[Live Preview](https://hana-anime-watch-order.vercel.app/)
+[Live Preview](https://kankei-anime-watch-order.vercel.app/)
 
 ## About The Project
 
 Finding the correct watch order for complex anime franchises can be confusing, especially for series with multiple seasons, movies, OVAs, and specials.
 
-### Hana Anime Watch Order App solves this problem by:
+### Kankei Anime Watch Order App solves this problem by:
 
 - Searching anime titles
 - Fetching anime relation data
@@ -54,8 +54,8 @@ This site is only for desktop right now but I will make the mobile version in fu
 To run this project locally:
 
 ```bash
-git clone https://github.com/ari-kashimu/Hana-Anime-Watch-Order-App.git
-cd Hana-Anime-Watch-Order-App
+git clone https://github.com/ari-kashimu/kankei-Anime-Watch-Order-App.git
+cd kankei-Anime-Watch-Order-App
 npm install
 npm run dev
 
