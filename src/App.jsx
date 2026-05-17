@@ -1,13 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import Searchsection from "./components/Searchsection";
 import Tile from "./components/Tile";
-import Loader from "./components/Loader";
-import VersionBadge from "./components/VersionBadge";
+import Loader from "./components/shared/Loader";
+import VersionBadge from "./components/shared/VersionBadge";
 import { delay } from "./helpers/delay";
 import { useSearch } from "./hooks/useSearch";
 import { getRootAnime } from "./helpers/getPrequel";
 import { filterResults } from "./helpers/filterResults";
 import { sortResults } from "./helpers/sortResults";
+import HomePage from "./pages/HomePage";
+import BgVideo from "./components/shared/BgVideo";
+import WatchOrder from "./pages/WatchOrder";
 
 const App = () => {
     //* Anime Name That User Types
@@ -190,7 +193,10 @@ const App = () => {
     }
 
     return (
-        <div className="bg-neutral-950 h-fit text-white relative">
+        <div className="bg-neutral-950 h-screen text-white relative overflow-hidden">
+            {/* <HomePage /> */}
+            <WatchOrder />
+            <BgVideo />
             <VersionBadge />
             <div className="w-full min-h-screen flex flex-col justify-center items-center p-15 gap-10">
                 {loading ? (
