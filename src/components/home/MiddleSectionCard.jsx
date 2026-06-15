@@ -11,7 +11,7 @@ const MiddleSectionCard = ({ name, src, entries }) => {
                     alt=""
                 />
             </div>
-            <div className="flex flex-col gap-5 px-8 py-5">
+            <div className="flex flex-col gap-5 px-8 py-5 ">
                 <div>
                     <h2 className="text-xl font-semibold border-b border-b-white/20 py-1 truncate">
                         {name}

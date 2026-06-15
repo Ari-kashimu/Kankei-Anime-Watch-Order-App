@@ -187,8 +187,8 @@ const App = () => {
         await getAllRelations(rootAnime);
 
         //  End Loading
-        setloading(false);
-
+        // setloading(false);
+        //
         console.log(rootAnime.mal_id);
     }
 
@@ -224,7 +224,7 @@ const App = () => {
                                                 name={ani.name}
                                                 eng_name={ani.eng_name}
                                                 type={ani.type}
-                                                ep={ani.episodes}
+                                                ep={ani.ep}
                                                 duration={ani.duration}
                                                 score={ani.score}
                                                 fromTo={ani.releaseDate}

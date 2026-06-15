@@ -8,16 +8,13 @@ const bg = [
     "/Videos/konan.mp4",
     "/Videos/Levi.mp4",
     "/Videos/mikasa goth.mp4",
-    "/Videos/mikasa.mp4",
     "/Videos/Miku nakano.mp4",
-    "/Videos/naruto.mp4",
     "/Videos/pain.mp4",
     "/Videos/sasuke.mp4",
     "/Videos/sasuke.mp4",
     "/Videos/shinobu.mp4",
     "/Videos/Silver.mp4",
     "/Videos/kaneki.mp4",
-    "/Videos/pain 2.mp4",
 ];
 
 const randomVideo = bg[Math.floor(Math.random() * bg.length)];
@@ -31,6 +28,7 @@ const BgVideo = () => {
                     autoPlay
                     muted
                     loop
+                    
                     playsInline>
                     <source src={randomVideo} type="video/mp4" />
                     This video doesn't support our broswer.

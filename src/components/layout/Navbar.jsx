@@ -13,7 +13,10 @@ const Navbar = ({ homeRef }) => {
                 </div>
             </a>
 
-            <SearchBox homeRef={homeRef} />
+            <SearchBox
+                position="left-[50.5%] -translate-x-3/4"
+                homeRef={homeRef}
+            />
 
             <div className="flex items-center gap-20">
                 <Button

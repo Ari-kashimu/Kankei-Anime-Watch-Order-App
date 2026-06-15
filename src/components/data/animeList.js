@@ -89,7 +89,7 @@ export const popularAnimeList = [
         name: "Naruto",
         src: "Images/Popular/naruto.jpg",
         releaseDate: "2002",
-        score: 80.0,
+        score: 8.0,
         episode: "720",
         duration: "23 mins per ep",
         introduction:
@@ -99,7 +99,7 @@ export const popularAnimeList = [
         name: "Attack on titan",
         src: "Images/Popular/aot.jpg",
         releaseDate: " 2013",
-        score: 85.0,
+        score: 8.5,
         episode: "90+",
         duration: "24 mins per ep",
         introduction:
@@ -109,7 +109,7 @@ export const popularAnimeList = [
         name: "Code Geass: Lelouch of the Rebellion",
         src: "Images/Popular/code  geass.jpg",
         releaseDate: "2006",
-        score: 85.0,
+        score: 8.5,
         episode: "50+",
         duration: "24 mins per ep",
         introduction:
@@ -119,7 +119,7 @@ export const popularAnimeList = [
         name: "Dragon Ball",
         src: "Images/Popular/dragon ball.jpg",
         releaseDate: "1986",
-        score: 75.0,
+        score: 7.5,
         episode: "800+",
         duration: "24 mins per ep",
         introduction:
@@ -129,7 +129,7 @@ export const popularAnimeList = [
         name: "Hunter x Hunter",
         src: "Images/Popular/hunter hunter.jpg",
         releaseDate: "1999",
-        score: 83.0,
+        score: 8.3,
         episode: "200+",
         duration: "23 mins per ep",
         introduction:
@@ -139,7 +139,7 @@ export const popularAnimeList = [
         name: "One Piece",
         src: "Images/Popular/one piece.jpg",
         releaseDate: "1999",
-        score: 87.0,
+        score: 8.7,
         episode: "1100+",
         duration: "23 mins per ep",
         introduction:
@@ -149,7 +149,7 @@ export const popularAnimeList = [
         name: "Sound! Euphonium",
         src: "Images/Popular/sound! euphonium.jpg",
         releaseDate: "2015",
-        score: 80.3,
+        score: 8.0,
         episode: "40+",
         duration: "24 mins per ep",
         introduction:
