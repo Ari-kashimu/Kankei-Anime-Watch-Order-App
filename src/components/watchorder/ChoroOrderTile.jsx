@@ -4,7 +4,6 @@ import { Calendar } from "lucide-react";
 import { Star } from "lucide-react";
 import { Clock } from "lucide-react";
 import { Play } from "lucide-react";
-import { Button } from "../ui/button";
 
 const ChoroOrderTile = () => {
     return (
@@ -41,7 +40,10 @@ const ChoroOrderTile = () => {
                         <Star className="w-3! h-3!" color="#fff" />
                         8.3
                     </Badge>
-                    <Badge className="text-xs p-2.5 bg-white/20" variant="custom" asChild>
+                    <Badge
+                        className="text-xs p-2.5 bg-white/20"
+                        variant="custom"
+                        asChild>
                         <a href="#">Vist MAL</a>
                     </Badge>
                 </div>

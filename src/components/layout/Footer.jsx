@@ -87,7 +87,7 @@ const Footer = () => {
             <div className="border-t border-white/30 py-2">
                 <p className="text-xs text-neutral-400">
                     All watch orders, data, and media metadata are managed and
-                    served through Kankei’s infrastructure <br></br> Powered by
+                    served by Kankei <br></br> Powered by
                     <span>
                         <a
                             className="underline mx-1"
