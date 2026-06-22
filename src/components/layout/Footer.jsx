@@ -1,5 +1,6 @@
 import React from "react";
 import VersionBadge from "../shared/VersionBadge";
+import { Link } from "react-router";
 
 const Footer = () => {
     return (
@@ -35,29 +36,27 @@ const Footer = () => {
                     <div className="flex flex-col text-neutral-400 gap-2 text-sm">
                         <a
                             className="hover:translate-x-1.5 ease-in-out transition-all duration-200 will-change-transform"
-                            href="#">
-                            Search
+                            href="https://github.com/Ari-kashimu/Kankei-Anime-Watch-Order-App"
+                            target="_blank">
+                            Github
+                        </a>
+                        <a
+                            className="hover:translate-x-1.5 ease-in-out transition-all duration-200 will-change-transform"
+                            href="https://ko-fi.com/"
+                            target="_blank">
+                            Kofi
                         </a>
                         <a
                             className="hover:translate-x-1.5 ease-in-out transition-all duration-200 will-change-transform"
                             href="#">
                             Contact
                         </a>
-                        <a
+
+                        <Link
                             className="hover:translate-x-1.5 ease-in-out transition-all duration-200 will-change-transform"
-                            href="#">
+                            to="/about">
                             About
-                        </a>
-                        <a
-                            className="hover:translate-x-1.5 ease-in-out transition-all duration-200 will-change-transform"
-                            href="#">
-                            Github
-                        </a>
-                        <a
-                            className="hover:translate-x-1.5 ease-in-out transition-all duration-200 will-change-transform"
-                            href="#">
-                            Kofi
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
@@ -69,16 +68,16 @@ const Footer = () => {
                         </h4>
                     </div>
                     <div className="flex flex-col text-neutral-400 gap-2 text-sm">
-                        <a
+                        <Link
                             className="hover:translate-x-1.5 ease-in-out transition-all duration-200 will-change-transform"
-                            href="#">
+                            to="/about">
                             Disclaimer
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             className="hover:translate-x-1.5 ease-in-out transition-all duration-200 will-change-transform"
-                            href="#">
+                            to="/about">
                             Privacy Policy
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -87,7 +86,7 @@ const Footer = () => {
             <div className="border-t border-white/30 py-2">
                 <p className="text-xs text-neutral-400">
                     All watch orders, data, and media metadata are managed and
-                    served by Kankei <br></br> Powered by
+                    served by Kankei. <br></br> Powered by
                     <span>
                         <a
                             className="underline mx-1"
@@ -105,7 +104,7 @@ const Footer = () => {
                             MyAnimeList
                         </a>
                     </span>
-                    © 2026 Kankei. All rights reserved.
+                    © 2026-27 Kankei. All rights reserved.
                 </p>
             </div>
         </div>

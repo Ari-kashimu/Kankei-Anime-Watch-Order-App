@@ -1,17 +1,18 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { Coffee } from "lucide-react";
-import SearchBox from "@/components/home/SearchBox";
+import SearchBox from "@/components/animeSearch/SearchBox";
+import { Link } from "react-router";
 
 const Navbar = ({ homeRef }) => {
     return (
         <div className="w-full py-6 px-12 flex justify-between items-center  bg-linear-to-t from-transparent to-neutral-950 ">
-            <a href="#">
+            <Link to="/">
                 <div className="flex gap-1.5 items-center">
                     <img className="w-8 h-8 " src="Kankei-2.png" alt="Logo" />
                     <span className="text-xl font-bold">Kankei</span>
                 </div>
-            </a>
+            </Link>
 
             <SearchBox
                 position="left-[50.5%] -translate-x-3/4"
@@ -24,7 +25,9 @@ const Navbar = ({ homeRef }) => {
                     variant="secondary"
                     size="sm"
                     asChild>
-                    <a href="#">
+                    <a
+                        target="_blank"
+                        href="https://github.com/Ari-kashimu/Kankei-Anime-Watch-Order-App">
                         <span>
                             <img
                                 className="w-4"
@@ -40,7 +43,7 @@ const Navbar = ({ homeRef }) => {
                     variant="secondary"
                     size="sm"
                     asChild>
-                    <a href="#">
+                    <a target="_blank" href="https://ko-fi.com/">
                         <Coffee />
                         Buy me a coffee
                     </a>

@@ -1,8 +1,9 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { House } from "lucide-react";
-import SearchBox from "../home/SearchBox";
+import SearchBox from "../animeSearch/SearchBox";
 import Navbar from "../layout/Navbar";
+import { Link } from "react-router";
 
 const TopSection = () => {
     return (
@@ -13,10 +14,10 @@ const TopSection = () => {
                 className="bg-transparent py-4 hover:scale-105 duration-300 will-change-transform text-white border-2 hover:bg-transparent cursor-pointer border-white/80"
                 asChild
                 variant="secondary">
-                <a href="#">
+                <Link to="/">
                     <House />
                     Home
-                </a>
+                </Link>
             </Button>
         </div>
     );

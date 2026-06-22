@@ -1,4 +1,4 @@
-import SearchBox from "@/components/home/SearchBox";
+import SearchBox from "@/components/animeSearch/SearchBox";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import TopSection from "@/components/watchorder/TopSection";

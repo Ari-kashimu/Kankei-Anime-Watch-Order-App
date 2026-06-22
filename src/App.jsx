@@ -12,6 +12,7 @@ import HomePage from "./pages/HomePage";
 import BgVideo from "./components/shared/BgVideo";
 import WatchOrder from "./pages/WatchOrder";
 import AboutPage from "./pages/AboutPage";
+import { Route, Routes } from "react-router";
 
 const App = () => {
     //* Anime Name That User Types
@@ -194,59 +195,65 @@ const App = () => {
     }
 
     return (
-        <div className="bg-neutral-950 h-screen text-white relative overflow-hidden">
-            <HomePage />
-            {/* <WatchOrder /> */}
-            {/* <AboutPage /> */}
+        <>
             <BgVideo />
-            <VersionBadge />
-            <div className="w-full min-h-screen flex flex-col justify-center items-center p-15 gap-10">
-                {loading ? (
-                    <Loader />
-                ) : (
-                    <>
-                        {/* //* Search Section */}
-                        <Searchsection
-                            aniName={aniName}
-                            setAniName={setAniNameHelper}
-                            searchResult={searchResult}
-                            getWatchOrder={getWatchOrder}
-                            emptyInput={emptyInput}
-                        />
 
-                        {/* //* Anime List */}
-                        {allRelations.length > 0 && (
-                            <>
-                                <ul className="w-full h-4/5 flex flex-col gap-5">
-                                    {allRelations.map((ani) => {
-                                        return (
-                                            <Tile
-                                                key={ani.mal_id}
-                                                img={ani.img}
-                                                name={ani.name}
-                                                eng_name={ani.eng_name}
-                                                type={ani.type}
-                                                ep={ani.ep}
-                                                duration={ani.duration}
-                                                score={ani.score}
-                                                fromTo={ani.releaseDate}
-                                                mal_url={ani.mal_url}
-                                            />
-                                        );
-                                    })}
-                                </ul>
-                                <div>
-                                    <p className="text-4xl font-semibold text-rose-400">
-                                        Total Entries Found:
-                                        {allRelations.length}
-                                    </p>
-                                </div>
-                            </>
-                        )}
-                    </>
-                )}
+            <div className="bg-neutral-950 h-screen text-white relative overflow-hidden">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/watch-order" element={<WatchOrder />} />
+                    <Route path="/contact" element={<AboutPage />} />
+                </Routes>
+
+                <div className="w-full min-h-screen flex flex-col justify-center items-center p-15 gap-10">
+                    {loading ? (
+                        <Loader />
+                    ) : (
+                        <>
+                            {/* //* Search Section */}
+                            <Searchsection
+                                aniName={aniName}
+                                setAniName={setAniNameHelper}
+                                searchResult={searchResult}
+                                getWatchOrder={getWatchOrder}
+                                emptyInput={emptyInput}
+                            />
+
+                            {/* //* Anime List */}
+                            {allRelations.length > 0 && (
+                                <>
+                                    <ul className="w-full h-4/5 flex flex-col gap-5">
+                                        {allRelations.map((ani) => {
+                                            return (
+                                                <Tile
+                                                    key={ani.mal_id}
+                                                    img={ani.img}
+                                                    name={ani.name}
+                                                    eng_name={ani.eng_name}
+                                                    type={ani.type}
+                                                    ep={ani.ep}
+                                                    duration={ani.duration}
+                                                    score={ani.score}
+                                                    fromTo={ani.releaseDate}
+                                                    mal_url={ani.mal_url}
+                                                />
+                                            );
+                                        })}
+                                    </ul>
+                                    <div>
+                                        <p className="text-4xl font-semibold text-rose-400">
+                                            Total Entries Found:
+                                            {allRelations.length}
+                                        </p>
+                                    </div>
+                                </>
+                            )}
+                        </>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

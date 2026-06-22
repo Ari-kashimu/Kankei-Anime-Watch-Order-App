@@ -28,7 +28,6 @@ const BgVideo = () => {
                     autoPlay
                     muted
                     loop
-                    
                     playsInline>
                     <source src={randomVideo} type="video/mp4" />
                     This video doesn't support our broswer.
