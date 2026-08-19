@@ -1,6 +1,8 @@
 import Footer from "@/components/layout/Footer";
 import TopSection from "@/components/watchorder/TopSection";
 import React from "react";
+import { Coffee } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const AboutPage = () => {
     return (
@@ -27,7 +29,22 @@ const AboutPage = () => {
                             providing organized watch orders, movie placement
                             guides, and essential series information in one
                             place. No spoilers, no confusion—just anime.
+                            <br></br>
+                            <br></br>
+                            If this site has helped you, consider making a
+                            donation. Every contribution helps me maintain and
+                            improve your experience.
                         </p>
+                        <div>
+                            <Button asChild variant="custom">
+                                <a
+                                    target="_blank"
+                                    href="https://ko-fi.com/aliari">
+                                    <Coffee className="w-5! h-5!" />
+                                    Support this Project
+                                </a>
+                            </Button>
+                        </div>
                     </div>
 
                     <div className="flex flex-col gap-5 border-b border-white/30 pb-8">

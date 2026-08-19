@@ -2,7 +2,7 @@ import React from "react";
 import MostPopularCard from "./MostPopularCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Flame } from "lucide-react";
-import { popularAnimeList } from "../data/animeList";
+import { popularAnimeList } from "../../logic/data/animeList";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -38,6 +38,7 @@ const MostPopularSection = () => {
                             key={idx}
                             className="w-275! h-130! transition-all">
                             <MostPopularCard
+                                id={anime.id}
                                 name={anime.name}
                                 src={anime.src}
                                 score={anime.score}

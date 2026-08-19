@@ -6,6 +6,8 @@ import { Clock } from "lucide-react";
 import { Play } from "lucide-react";
 import { Button } from "../ui/button";
 import { TextAlignStart } from "lucide-react";
+import { useRelWatchOrderContext } from "@/context/relWatchOrderContext";
+import { Link } from "react-router";
 
 const MostPopularCard = ({
     name,
@@ -15,7 +17,10 @@ const MostPopularCard = ({
     duration,
     episodes,
     intro,
+    id,
 }) => {
+    const { getRelWatchOrder } = useRelWatchOrderContext();
+
     return (
         <div className="bg-white/10 supports-backdrop-filter:backdrop-blur-2xl border border-white/50 rounded-4xl h-full w-full p-8 flex justify-between items-center shadow-sm">
             <div className="w-80 h-full rounded-2xl overflow-hidden border-2 border-white/80">
@@ -55,8 +60,16 @@ const MostPopularCard = ({
                     </p>
                 </div>
                 <div>
-                    <Button className="" variant="custom">
-                        See Watch Order
+                    <Button
+                        asChild
+                        className=""
+                        variant="custom"
+                        onClick={() => {
+                            getRelWatchOrder(id);
+                        }}>
+                        <Link to={`/watch-order/anime/${id}`}>
+                            See Watch Order
+                        </Link>
                     </Button>
                 </div>
             </div>

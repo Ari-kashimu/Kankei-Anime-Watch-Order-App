@@ -18,5 +18,3 @@ const WatchOrder = () => {
 };
 
 export default WatchOrder;
-
-// TODO : Make the about page

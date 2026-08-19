@@ -14,12 +14,16 @@ const Footer = () => {
                                 className="w-8 h-8 "
                                 src="Kankei-2.png"
                                 alt="Logo"
+                                onError={(e) => {
+                                    e.currentTarget.src =
+                                        "https://i.ibb.co/GfVqfCqw/Kankei-2.png";
+                                }}
                             />
                             <span className="text-xl font-bold">Kankei</span>
                         </div>
                         <VersionBadge />
                     </div>
-                    <p className="text-xs text-neutral-200">
+                    <p className="text-sm text-neutral-200">
                         Follow the true story flow with accurate watch orders |
                         Everything you need to <br></br> watch anime in the
                         correct sequence.
@@ -42,7 +46,7 @@ const Footer = () => {
                         </a>
                         <a
                             className="hover:translate-x-1.5 ease-in-out transition-all duration-200 will-change-transform"
-                            href="https://ko-fi.com/"
+                            href="https://ko-fi.com/aliari"
                             target="_blank">
                             Kofi
                         </a>
@@ -90,21 +94,21 @@ const Footer = () => {
                     <span>
                         <a
                             className="underline mx-1"
-                            href="https://jikan.moe/"
+                            href="https://shikimori.io/"
                             target="_blank">
-                            Jikan-Api
+                            Skihimori
                         </a>
                     </span>
-                    which is base on
+                    and for root anime details i used
                     <span>
                         <a
                             className="underline mx-1"
-                            href="https://myanimelist.net/"
+                            href="https://jikan.moe/"
                             target="_blank">
-                            MyAnimeList
+                            Jikan
                         </a>
                     </span>
-                    © 2026-27 Kankei. All rights reserved.
+                    | © 2026-27 Kankei. All rights reserved.
                 </p>
             </div>
         </div>

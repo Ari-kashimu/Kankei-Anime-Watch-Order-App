@@ -14,6 +14,7 @@ const MiddleSection = ({ sectionName, icon, animeList }) => {
                 {animeList.map((anime, idx) => {
                     return (
                         <MiddleSectionCard
+                            id={anime.id}
                             key={idx}
                             name={anime.name}
                             src={anime.src}

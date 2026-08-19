@@ -8,30 +8,55 @@ import {
 } from "@/components/ui/dialog";
 import { DialogOverlay } from "@/components/ui/dialog";
 import SearchBoxButton from "./SearchBoxButton";
-import { useAniSearch } from "./useAniSearch";
+
 import SearchResultTile from "../animeSearch/SearchResultTile";
 import { Skeleton } from "@/components/ui/skeleton";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { useAniSearchQuery } from "@/logic/services/aniSearchQuery";
 
 const SearchBox = ({ homeRef, position }) => {
     const [aniName, setAniName] = useState("");
+    const [open, setOpen] = useState(false);
 
-    const { search, aniSearchResult, isLoading } = useAniSearch();
+    const {
+        search,
+        aniSearchResult,
+        setAniSearchResult,
+        isLoading,
+        hasSearched,
+        setHasSearched,
+    } = useAniSearchQuery();
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            search(aniName);
-        }, 300);
+            if (aniName.length >= 3) {
+                search(aniName);
+            }
+        }, 500);
 
         return () => {
             clearTimeout(timer);
         };
     }, [aniName]);
 
-    console.log(aniSearchResult);
+    function clearStates() {
+        setTimeout(() => {
+            setAniName("");
+            setAniSearchResult([]);
+            setHasSearched(false);
+        }, 700);
+    }
 
     return (
-        <Dialog>
+        <Dialog
+            open={open}
+            onOpenChange={(isOpen) => {
+                setOpen(isOpen);
+
+                if (!isOpen) {
+                    clearStates();
+                }
+            }}>
             <DialogOverlay className="bg-black/40 backdrop-blur-lg transition-opacity duration-150" />
 
             <DialogTrigger asChild>
@@ -73,20 +98,41 @@ const SearchBox = ({ homeRef, position }) => {
                         ))}
                     </div>
                 ) : (
-                    aniSearchResult.length > 0 && (
+                    (aniSearchResult.length > 0 && (
                         <div className="min-h-100 overflow-y-auto flex gap-1 flex-col">
                             {aniSearchResult.map((ani) => (
                                 <SearchResultTile
-                                    key={ani.mal_id}
-                                    img={ani.images.jpg.image_url}
-                                    name={ani.title}
-                                    releaseDate={ani.aired.prop.from.year}
-                                    id={ani.mal_id}
-                                    type={ani.type}
+                                    clearStates={clearStates}
+                                    setOpen={setOpen}
+                                    key={ani.id}
+                                    malId={ani.malId}
+                                    eng_name={ani.english}
+                                    name={ani.name}
+                                    kind={ani.kind}
+                                    score={ani.score}
+                                    status={ani.status}
+                                    airedOn={ani.airedOn.year}
+                                    img={
+                                        ani.poster?.main2xUrl ||
+                                        "https://i.ibb.co/pvbTzg70/default.jpg"
+                                    }
                                 />
                             ))}
                         </div>
-                    )
+                    )) ||
+                    (hasSearched && aniSearchResult.length === 0 && (
+                        <div className="w-full flex flex-col text-white  items-center justify-center">
+                            <h3 className="font-bold text-lg mb-3">
+                                ˚‧º·( ˃̣̣̥⌓˂̣̣̥ )‧º·˚
+                            </h3>
+                            <h3 className="font-bold text-lg">
+                                No such anime exists
+                            </h3>
+                            <p className="text-neutral-300 text-sm">
+                                Mind looking at what you've written
+                            </p>
+                        </div>
+                    ))
                 )}
             </DialogContent>
         </Dialog>
@@ -94,5 +140,3 @@ const SearchBox = ({ homeRef, position }) => {
 };
 
 export default SearchBox;
-
-// TODO: Make routing for paging

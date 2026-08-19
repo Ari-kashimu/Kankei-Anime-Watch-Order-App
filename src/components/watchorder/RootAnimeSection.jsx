@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TextAlignStart } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Calendar } from "lucide-react";
@@ -6,64 +6,102 @@ import { Star } from "lucide-react";
 import { Clock } from "lucide-react";
 import { Play } from "lucide-react";
 import { Button } from "../ui/button";
+import { useRelWatchOrderContext } from "@/context/relWatchOrderContext";
+import { fetchRootAnime } from "@/logic/services/apiRequests";
+import { Skeleton } from "../ui/skeleton";
 
-const RootAnimeSection = () => {
-    return (
-        <div className="px-24 flex w-full justify-between gap-5 ">
+const RootAnimeSection = ({ rootAnime, isLoading }) => {
+    const [rootAnimeFromJikan, setRootAnimeFromJikan] = useState({});
+
+    useEffect(() => {
+        async function loadAnime() {
+            if (!rootAnime) return;
+
+            const data = await fetchRootAnime(rootAnime.malId);
+            setRootAnimeFromJikan(data);
+        }
+        loadAnime();
+    }, [rootAnime]);
+
+    return isLoading ? (
+        <Skeleton className="px-24 h-90 flex w-full justify-between gap-5 bg-transparent ">
+            <Skeleton className="w-65 h-full rounded-2xl  bg-white/30" />
+            <Skeleton className="w-[85%] h-full flex flex-col gap-5 justify-center rounded-2xl  bg-transparent">
+                <div className="flex flex-col gap-2">
+                    <Skeleton className="w-100 h-16 bg-white/30" />
+                    <Skeleton className="w-60 h-3 bg-white/30" />
+                </div>
+
+                <div className="w-full">
+                    <Skeleton className="w-full h-25 bg-white/30" />
+                </div>
+
+                <div className="flex gap-2.5">
+                    <Skeleton className="w-22 h-7.5 bg-white/30 rounded-full" />
+                    <Skeleton className="w-22 h-7.5 bg-white/30 rounded-full" />
+                    <Skeleton className="w-22 h-7.5 bg-white/30 rounded-full" />
+                    <Skeleton className="w-22 h-7.5 bg-white/30 rounded-full" />
+                </div>
+
+                <div className="flex gap-5">
+                    <Skeleton className="w-28 h-11 bg-white/30" />
+                    <Skeleton className="w-28 h-11 bg-white/30" />
+                </div>
+            </Skeleton>
+        </Skeleton>
+    ) : (
+        <div className="px-24 flex h-90 w-full justify-between gap-5 ">
             <div>
                 <img
-                    className="rounded-2xl h-full  object-cover"
-                    src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx116589-KawXHB6sApFt.jpg"
-                    alt=""
+                    className="rounded-2xl h-full w-65  object-cover"
+                    src={rootAnime?.poster.main2xUrl}
+                    alt={rootAnime?.name}
                 />
             </div>
 
-            <div className="w-[85%] flex flex-col justify-between gap-5">
+            <div className="w-[85%] flex flex-col justify-center gap-5">
                 <div>
                     <h1 className="text-5xl font-semibold mb-2.5 ">
-                        Eighty Six
+                        {rootAnime?.english || rootAnime?.name}
                     </h1>
-                    <p>86</p>
+                    <p>{rootAnime?.japanese || rootAnime?.name}</p>
                 </div>
 
                 <div>
                     <p className="h-25 overflow-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-neutral-900 [&::-webkit-scrollbar-thumb]:bg-white/80 [&::-webkit-scrollbar-thumb]:rounded-full">
-                        Called “Juggernaut,” these are the unmanned combat
-                        drones developed by the Republic of San Magnolia in
-                        answer to the attacks by the autonomous unmanned drones
-                        of the neighboring Empire of Giad, the “Legion”. But
-                        they’re only unmanned in name. In reality, they are
-                        piloted by the Eighty-sixers—those considered to be less
-                        than human and treated as mere tools. Determined to
-                        achieve his own mysterious ends, Shin, the captain of
-                        Spearhead Squadron, which is comprised of Eighty-sixers,
-                        continues to fight a hopeless war on a battlefield where
-                        only death awaits him.
+                        {rootAnimeFromJikan?.synopsis}
                     </p>
                 </div>
 
                 <div className="flex gap-2.5">
                     <Badge variant="custom">
                         <Calendar className="w-4! h-4!" color="#fff" />
-                        2021
+                        {rootAnime?.airedOn.year}
                     </Badge>
                     <Badge variant="custom">
                         <Play className="w-4! h-4!" color="#fff" />
-                        Episodes: 24
+                        Episodes: {rootAnime?.episodes}
                     </Badge>
                     <Badge variant="custom">
                         <Clock className="w-4! h-4!" color="#fff" />
-                        24 min per Ep
+                        {rootAnime?.duration} min
                     </Badge>
                     <Badge variant="custom">
                         <Star className="w-4! h-4!" color="#fff" />
-                        8.3
+                        {rootAnime?.score}
                     </Badge>
                 </div>
 
-                <div>
+                <div className="flex gap-5">
                     <Button variant="custom" asChild>
-                        <a href="#">Vist MAL</a>
+                        <a target="_blank" href={rootAnimeFromJikan?.url}>
+                            Visit MAL
+                        </a>
+                    </Button>
+                    <Button variant="custom" asChild>
+                        <a target="_blank" href={rootAnime?.url}>
+                            Visit Shiki
+                        </a>
                     </Button>
                 </div>
             </div>

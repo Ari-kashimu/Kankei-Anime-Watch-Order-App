@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const Navbar = ({ homeRef }) => {
     return (
-        <div className="w-full py-6 px-12 flex justify-between items-center  bg-linear-to-t from-transparent to-neutral-950 ">
+        <div className="w-full py-6 px-12 flex justify-between items-center ">
             <Link to="/">
                 <div className="flex gap-1.5 items-center">
                     <img className="w-8 h-8 " src="Kankei-2.png" alt="Logo" />
@@ -43,7 +43,7 @@ const Navbar = ({ homeRef }) => {
                     variant="secondary"
                     size="sm"
                     asChild>
-                    <a target="_blank" href="https://ko-fi.com/">
+                    <a target="_blank" href="https://ko-fi.com/aliari">
                         <Coffee />
                         Buy me a coffee
                     </a>

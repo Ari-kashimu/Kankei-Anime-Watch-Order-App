@@ -4,8 +4,8 @@ import { Search } from "lucide-react";
 
 const HeroMain = () => {
     return (
-        <div className="px-12 flex flex-col gap-6">
-            <h1 className="text-6xl font-bold">
+        <div className="px-12 flex flex-col gap-6 ">
+            <h1 className="text-6xl font-bold text-shadow-lg/10">
                 Watch Anime the <br></br> Way It Was Meant to Be
             </h1>
             <p>

@@ -4,7 +4,7 @@ import MostPopularSection from "@/components/home/MostPopularSection";
 import Footer from "@/components/layout/Footer";
 import { GitBranch } from "lucide-react";
 import { ZodiacSagittarius } from "lucide-react";
-import { complexAnimeList, simpleAnimeList } from "@/components/data/animeList";
+import { complexAnimeList, simpleAnimeList } from "@/logic/data/animeList";
 
 import React, { useRef } from "react";
 
