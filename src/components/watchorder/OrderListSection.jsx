@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import AiredOrderTile from "./AiredOrderTile.jsx";
 import { Logs } from "lucide-react";
 import { Music } from "lucide-react";
-import { Waypoints } from "lucide-react";
-import { Star } from "lucide-react";
-import ChoroOrderTile from "./ChoroOrderTile.jsx";
 import { useRelWatchOrderContext } from "@/context/relWatchOrderContext.jsx";
-import { Skeleton } from "../ui/skeleton.jsx";
 import CheckFilter from "../layout/CheckFilter.jsx";
-import ChoroOrderSection from "./ChoroOrderSection.jsx";
 import AiredOrderSection from "./AiredOrderSection.jsx";
 import {
     Accordion,
@@ -16,7 +10,6 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
-import RelatedGroupSection from "./RelatedGroupSection.jsx";
 import MusicSection from "./MusicSection.jsx";
 
 const OrderListSection = () => {
@@ -56,7 +49,7 @@ const OrderListSection = () => {
     });
 
     return (
-        <div className="px-24 py-6 w-full h-fit  flex flex-col gap-6 border-t border-white/10">
+        <div className="px-24 max-[1300px]:px-12 max-[980px]:px-6  py-6 w-full h-fit  flex flex-col gap-6 border-t border-white/10">
             <Accordion
                 className="flex flex-col "
                 type="single"
@@ -66,12 +59,13 @@ const OrderListSection = () => {
                 <AccordionItem value="release order">
                     <AccordionTrigger className="flex items-center gap-3 hover:no-underline hover:scale-101 duration-400 cursor-pointer">
                         <Logs size={32} />
-                        <h2 className="text-4xl font-bold">Release Order</h2>
+                        <h2 className="text-4xl max-[1300px]:text-3xl max-[450px]:text-xl font-bold">
+                            Release Order
+                        </h2>
                     </AccordionTrigger>
                     <AccordionContent className="w-full h-full flex flex-col gap-6">
-                        <div>
+                        <div className="">
                             <CheckFilter
-                                className="ml-auto"
                                 filters={filters}
                                 setFilters={setFilters}
                             />
@@ -101,8 +95,8 @@ const OrderListSection = () => {
                     <AccordionItem value="music">
                         <AccordionTrigger className="flex items-center gap-3 hover:no-underline hover:scale-101 duration-400 cursor-pointer">
                             <Music size={32} />
-                            <h2 className="text-4xl font-bold">
-                                Related Music And Others
+                            <h2 className="text-4xl max-[1300px]:text-3xl max-[450px]:text-xl font-bold">
+                                Related Music
                             </h2>
                         </AccordionTrigger>
                         <AccordionContent className="w-full h-full flex flex-col gap-6">

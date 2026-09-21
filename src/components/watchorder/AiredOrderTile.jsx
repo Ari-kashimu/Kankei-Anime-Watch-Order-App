@@ -25,23 +25,31 @@ const AiredOrderTile = ({
     liNum,
 }) => {
     return (
-        <div className="border p-2 w-full border-white/20 rounded-2xl h-40 flex gap-5 items-center ">
+        <div className="border p-2 w-full border-white/20 rounded-2xl h-40 max-[720px]:h-30 flex gap-5 items-center ">
             <img
-                className="h-full rounded-xl w-25 object-cover"
+                className="h-full rounded-xl w-25 max-[720px]:w-18 object-cover"
                 src={poster}
                 alt={`${name} Image`}
             />
-            <div className="flex flex-col gap-5 h-fit min-w-0">
+            <div className="flex flex-col gap-5 max-[840px]:gap-2   min-w-0">
                 <div>
-                    <h1 className="text-3xl font-semibold mb-1 truncate">
+                    <h1 className="text-3xl max-[980px]:text-2xl max-[740px]:text-xl max-[720px]:text-sm  font-semibold mb-1 truncate">
                         {english ? english : name}
                     </h1>
-                    <p className="text-xs truncate">
+                    <p className="text-xs max-[740px]:text-[8px] truncate">
                         {japanese} | {name}
                     </p>
                 </div>
 
-                <div className="flex gap-2.5">
+                <div className="text-[10px] max-[360px]:text-[8px] min-[720px]:hidden">
+                    {airedOn} | Ep:{episodes} | {duration} min | ★ {score} |{" "}
+                    {status} | {kind}
+                    <div className="scale-55 origin-left">
+                        <ExternalLinksForAnime externalLinks={externalLinks} />
+                    </div>
+                </div>
+
+                <div className="flex max-[840px]:flex-wrap  gap-2.5 max-[1300px]:scale-70 max-[720px]:hidden origin-left">
                     <Badge className="text-xs p-3" variant="custom">
                         <Calendar className="w-4! h-4!" color="#fff" />
                         {airedOn ? airedOn : "Unknown"}
@@ -71,7 +79,7 @@ const AiredOrderTile = ({
                 </div>
             </div>
 
-            <div className=" ml-auto  p-20 flex justify-center items-center font-bold text-3xl h-full  ">
+            <div className=" ml-auto  p-20 max-[980px]:p-10 max-[840px]:p-5 max-[720px]:text-xl max-[720px]:p-2.5 flex justify-center items-center font-bold text-3xl h-full  ">
                 {liNum}
             </div>
         </div>

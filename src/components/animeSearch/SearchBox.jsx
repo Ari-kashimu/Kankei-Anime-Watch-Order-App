@@ -57,13 +57,15 @@ const SearchBox = ({ homeRef, position }) => {
                     clearStates();
                 }
             }}>
-            <DialogOverlay className="bg-black/40 backdrop-blur-lg transition-opacity duration-150" />
+            <DialogOverlay className="bg-black/60 backdrop-blur-lg transition-opacity duration-150" />
 
             <DialogTrigger asChild>
                 <SearchBoxButton position={position} homeRef={homeRef} />
             </DialogTrigger>
 
-            <DialogContent className="bg-white/10 backdrop-blur-2xl duration-150 max-w-2xl! border data-open:slide-in-from-top-5 border-white/20 top-[10%] translate-y-0 transition-opacity">
+            <DialogContent
+                className="bg-white/10 backdrop-blur-2xl duration-150 max-w-2xl! border data-open:slide-in-from-top-5 border-white/20 top-[10%] translate-y-0 transition-opacity max-[800px]:w-[calc(100%-15rem)] max-[700px]:w-[calc(100%-10rem)] max-[600px]:w-[calc(100%-5rem)] 
+            max-[500px]:scale-80 max-[500px]:w-full  max-[500px]:origin-[center_top]">
                 <VisuallyHidden>
                     <DialogTitle>Search anime</DialogTitle>
                     <DialogDescription>
@@ -71,7 +73,7 @@ const SearchBox = ({ homeRef, position }) => {
                     </DialogDescription>
                 </VisuallyHidden>
                 {/*  */}
-                <div className="border-b border-neutral-500 px-4 py-3">
+                <div className="border-b border-neutral-500 px-4 py-3 ">
                     <input
                         value={aniName}
                         onChange={(e) => {

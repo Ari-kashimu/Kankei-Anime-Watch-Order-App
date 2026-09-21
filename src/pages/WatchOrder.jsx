@@ -1,6 +1,4 @@
-import SearchBox from "@/components/animeSearch/SearchBox";
 import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
 import TopSection from "@/components/watchorder/TopSection";
 import WatchOrderMain from "@/components/watchorder/WatchOrderMain";
 import React from "react";

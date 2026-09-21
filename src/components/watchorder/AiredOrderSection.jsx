@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import AiredOrderTile from "./AiredOrderTile.jsx";
-import { Logs } from "lucide-react";
-import ChoroOrderTile from "./ChoroOrderTile.jsx";
 import { useRelWatchOrderContext } from "@/context/relWatchOrderContext.jsx";
 import { Skeleton } from "../ui/skeleton.jsx";
-import CheckFilter from "../layout/CheckFilter.jsx";
-import ChoroOrderSection from "./ChoroOrderSection.jsx";
 
 const AiredOrderSection = ({ filteredAnime, orderWithoutMusic }) => {
-    const { isLoading, relWatchOrder } = useRelWatchOrderContext();
+    const { isLoading } = useRelWatchOrderContext();
 
     return (
         <div>
@@ -46,7 +42,7 @@ const AiredOrderSection = ({ filteredAnime, orderWithoutMusic }) => {
                         </div>
                     )}
 
-                    <div className="w-full mt-6 mb-3 font-bold text-2xl flex justify-center items-center">
+                    <div className="w-full mt-6 mb-3 font-bold text-2xl max-[1300px]:text-xl max-[450px]:text-[13px] flex justify-center items-center">
                         Total Entries : {filteredAnime.length} | Hidden Entries
                         : {orderWithoutMusic.length - filteredAnime.length}
                     </div>

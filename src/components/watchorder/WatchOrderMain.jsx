@@ -22,7 +22,7 @@ const WatchOrderMain = () => {
         ) ?? relWatchOrder?.[0];
 
     return (
-        <div className="w-full py-16 px-16">
+        <div className="w-full py-16 px-16 max-[1200px]:px-8 max-[550px]:px-4">
             <div className="bg-white/5 h-fit overflow-hidden backdrop-blur-2xl rounded-4xl">
                 {/* Banner */}
                 <img

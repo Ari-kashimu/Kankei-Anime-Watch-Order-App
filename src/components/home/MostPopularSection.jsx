@@ -12,7 +12,7 @@ import { EffectCoverflow, Pagination } from "swiper/modules";
 
 const MostPopularSection = () => {
     return (
-        <div className="w-full h-fit px-12 py-6 flex flex-col gap-10 border-t border-white/30">
+        <div className="w-full h-fit px-12 max-[550px]:px-6 py-6 flex flex-col gap-10 border-t border-white/30">
             <div className="flex gap-2 items-center">
                 <Flame size={30} color="#D3B0F8" />
                 <h1 className="text-2xl font-bold">Most Popular</h1>
@@ -36,7 +36,7 @@ const MostPopularSection = () => {
                     return (
                         <SwiperSlide
                             key={idx}
-                            className="w-275! h-130! transition-all">
+                            className="max-[1000px]:w-1/2! max-[750px]:w-2/3! max-[500px]:w-3/4! max-[400px]:w-5/6! w-3/5! h-fit! will-change-transform transition-all">
                             <MostPopularCard
                                 id={anime.id}
                                 name={anime.name}
