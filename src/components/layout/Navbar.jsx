@@ -50,7 +50,9 @@ const Navbar = ({ homeRef }) => {
                     variant="secondary"
                     size="sm"
                     asChild>
-                    <a target="_blank" href="https://ko-fi.com/aliari">
+                    <a
+                        target="_blank"
+                        href="https://www.patreon.com/cw/Ari_ken">
                         <Coffee />
                         <span className="max-[700px]:hidden">
                             Buy me a coffee

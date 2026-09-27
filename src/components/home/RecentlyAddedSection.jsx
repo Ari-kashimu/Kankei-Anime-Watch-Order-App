@@ -8,7 +8,7 @@ const RecentlyAdded = () => {
         <div className="flex flex-col gap-2.5 px-12 py-6 max-[550px]:px-6">
             <div className="flex gap-2 items-center">
                 <ListPlus size={18} />
-                <h1 className="font-semibold text-sm">Recently Updated</h1>
+                <h1 className="font-semibold text-sm">{`Recently Updated (Coming Soon)`}</h1>
             </div>
             <div>
                 <RecentlyAddedSlider />

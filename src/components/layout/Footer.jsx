@@ -47,7 +47,7 @@ const Footer = () => {
                             </a>
                             <a
                                 className="hover:translate-x-1.5 ease-in-out transition-all duration-200 will-change-transform max-[1100px]:text-xs"
-                                href="https://ko-fi.com/aliari"
+                                href="https://www.patreon.com/cw/Ari_ken"
                                 target="_blank">
                                 Kofi
                             </a>

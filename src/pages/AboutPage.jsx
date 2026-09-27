@@ -37,17 +37,25 @@ const AboutPage = () => {
                             <p>
                                 If this site has helped you, consider making a
                                 donation. Every contribution helps me maintain
-                                and improve your experience.
+                                and improve your experience. And also you can
+                                contact me on Instagram.
                             </p>
                         </div>
 
-                        <div>
+                        <div className="flex gap-2.5 items-center max-[500px]:flex-col max-[500px]:scale-75">
                             <Button asChild variant="custom">
                                 <a
                                     target="_blank"
-                                    href="https://ko-fi.com/aliari">
+                                    href="https://www.patreon.com/cw/Ari_ken">
                                     <Coffee className="w-5! h-5!" />
                                     Support this Project
+                                </a>
+                            </Button>
+                            <Button asChild variant="custom">
+                                <a
+                                    target="_blank"
+                                    href="https://www.instagram.com/ari__ken/">
+                                    Instagram
                                 </a>
                             </Button>
                         </div>
