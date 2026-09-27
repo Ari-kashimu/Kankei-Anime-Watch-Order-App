@@ -38,7 +38,7 @@ const Navbar = ({ homeRef }) => {
                         <span>
                             <img
                                 className="w-4"
-                                src="src\assets\github-1.png"
+                                src="https://i.ibb.co/jBr6MTT/github-1.png"
                                 alt="Github Logo"
                             />
                         </span>
