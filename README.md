@@ -22,7 +22,7 @@ This project is currently in Beta (v0.2.0) and represents the foundation of a mo
 
 ## ScreenShots
 
-![Landing Page](./src/assets/Landing%20Page.png)
+![Home](./src/assets/Landing%20Page.png)
 ![Search Box](./src/assets/Watch%20Order-1.png)
 ![Watch Order](./src/assets/Watch%20Order-2.png)
 ![Footer](./src/assets/Footer.png)
