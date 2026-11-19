@@ -1,4 +1,4 @@
-# Kankei Anime Watch Order App (0.2.0)
+# Kankei Anime Watch Order App (0.2.0) (Paused No longer Work For now)
 
 kankei Anime Watch Order App is a modern Anime Watch Order Generator built with React that automatically
 generates the correct viewing order for anime series using anime relation data.
